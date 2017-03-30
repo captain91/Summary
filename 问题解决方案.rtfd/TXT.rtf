@@ -1,0 +1,317 @@
+{\rtf1\ansi\ansicpg936\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 STHeitiSC-Light;\f2\fswiss\fcharset0 ArialMT;
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fnil\fcharset134 PingFangSC-Regular;\f5\fnil\fcharset0 HelveticaNeue;
+}
+{\colortbl;\red255\green255\blue255;\red255\green83\blue8;\red38\green38\blue38;\red170\green13\blue145;
+\red92\green38\blue153;\red46\green13\blue110;\red255\green39\blue18;\red0\green116\blue0;\red63\green110\blue116;
+\red28\green0\blue207;\red196\green26\blue22;\red217\green11\blue0;\red255\green0\blue0;\red100\green56\blue32;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14800\viewh10800\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 1.
+\f1 \'bd\'e2\'be\'f6\'d7\'d4\'b6\'a8\'d6\'c6
+\f0 navigationItem
+\f1 \'ca\'b1\'cf\'b5\'cd\'b3\'b2\'e0\'bb\'ac\'d0\'a7\'b9\'fb\'bb\'b9\'b4\'e6\'d4\'da
+\fs24 \cf0 \
+	
+\fs28 \cf3 \expnd0\expndtw0\kerning0
+\'bf\'c9\'d2\'d4\'d4\'da
+\f2 pushViewController
+\f1 \'d6\'ae\'ba\'f3\'bc\'d3\'c8\'eb\'c8\'e7\'cf\'c2\'b4\'fa\'c2\'eb\'a3\'ba\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3\fs24 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 [\cf4 self\cf0 .\cf5 navigationController\cf0  \cf6 pushViewController\cf0 :tc \cf6 animated\cf0 :\cf4 YES\cf0 ];\
+    \cf4 if\cf0  ([\cf4 self\cf0 .\cf5 navigationController\cf0  \cf6 respondsToSelector\cf0 :\cf4 @selector\cf0 (interactivePopGestureRecognizer)]) \{\
+        \cf4 self\cf0 .\cf5 navigationController\cf0 .\cf5 interactivePopGestureRecognizer\cf0 .\cf5 delegate\cf0 =\cf4 nil\cf0 ;\
+    \}\
+
+\fs28 \
+\cf7 2.cell
+\f1 \'b5\'c4\'d7\'d4\'ca\'ca\'d3\'a6\'b8\'df\'b6\'c8\'ce\'ca\'cc\'e2\cf0 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3\fs24 \cf8 //
+\f1 \'bc\'c6\'cb\'e3
+\f3 cell
+\f1 \'b5\'c4\'b8\'df\'b6\'c8
+\f3 \cf0 \
+-(\cf4 void\cf0 )setIntroductionText:(\cf5 NSString\cf0  *)text\{\
+    \cf8 //
+\f1 \'bb\'f1\'b5\'c3\'b5\'b1\'c7\'b0
+\f3 cell
+\f1 \'b8\'df\'b6\'c8
+\f3 \cf0 \
+    \cf5 CGRect\cf0  frame = \cf4 self\cf0 .\cf5 frame\cf0 ;\
+    \cf8 //
+\f1 \'ce\'c4\'b1\'be\'b8\'b3\'d6\'b5
+\f3 \cf0 \
+    \cf4 self\cf0 .\cf9 introduction\cf0 .\cf5 text\cf0  = text;\
+    \
+    \cf4 self\cf0 .\cf9 introduction\cf0 .\cf5 numberOfLines\cf0  = \cf10 0\cf0 ;\
+    \
+    \cf5 CGSize\cf0  size = \cf6 CGSizeMake\cf0 (\cf4 self\cf0 .\cf5 bounds\cf0 .\cf5 size\cf0 .\cf5 width\cf0 -\cf10 20\cf0 , \cf10 1000\cf0 );\
+    \
+    frame.\cf5 size\cf0 .\cf5 height\cf0 =[\cf4 self\cf0 .\cf9 introduction\cf0 .\cf5 text\cf0  \cf6 boundingRectWithSize\cf0 :size \cf6 options\cf0 :\cf6 NSStringDrawingUsesLineFragmentOrigin\cf0  | \cf6 NSStringDrawingUsesFontLeading\cf0  \cf6 attributes\cf0 :[\cf5 NSDictionary\cf0  \cf6 dictionaryWithObjectsAndKeys\cf0 :\cf4 self\cf0 .\cf9 introduction\cf0 .\cf5 font\cf0 ,\cf5 NSFontAttributeName\cf0 , \cf4 nil\cf0 ] \cf6 context\cf0 :\cf4 nil\cf0 ].\cf5 size\cf0 .\cf5 height\cf0 ;\
+    \
+    \cf4 self\cf0 .\cf9 introduction\cf0 .\cf5 frame\cf0  = \cf6 CGRectMake\cf0 (\cf10 10\cf0 , \cf10 50\cf0 , \cf4 self\cf0 .\cf5 bounds\cf0 .\cf5 size\cf0 .\cf5 width\cf0 -\cf10 20\cf0 , frame.\cf5 size\cf0 .\cf5 height\cf0 );\
+    \
+    \cf4 self\cf0 .\cf5 frame\cf0  = frame;\
+\}\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f1 \cf0 //\'d0\'ad\'d2\'e9\'b7\'bd\'b7\'a8\'b7\'b5\'bb\'d8\'b2\'bb\'cd\'accell\'b5\'c4\'b8\'df\'b6\'c8
+\f3 \
+-(\cf5 CGFloat\cf0 )tableView:(\cf5 UITableView\cf0  *)tableView heightForRowAtIndexPath:(\cf5 NSIndexPath\cf0  *)indexPath\
+\{\
+    \cf9 AdaptiveHeightCell\cf0  *cell=(\cf4 id\cf0 )[\cf4 self\cf0  \cf6 tableView\cf0 :tableView \cf6 cellForRowAtIndexPath\cf0 :indexPath];\
+    \
+    \cf4 return\cf0  cell.\cf5 frame\cf0 .\cf5 size\cf0 .\cf5 height\cf0  + \cf10 60\cf0 ;\
+    \
+\}\
+\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 3.
+\f1 \'c5\'d0\'b6\'cf\'d2\'bb\'b8\'f6\'d6\'b5\'ca\'c7\'b7\'f1\'ce\'aaNSNull\cf0 \
+	
+\f3 \cf4 if\cf0  ([pricesArray \cf6 isEqual\cf0 :[\cf5 NSNull\cf0  \cf6 null\cf0 ]]==\cf4 NO\cf0 )\{\
+		//do something;\
+	\}\
+\
+\cf7 4.Mac 
+\f1 \'cf\'c2
+\f3 github
+\f1 \'b5\'c4\'ca\'b9\'d3\'c3
+\f3 \cf0 \
+	git init\
+	touch README.ad\
+	git add README.ad\
+	git commit -m \'91first commit\'92\
+	git remote add origin https://github.com/captain91/firstGit.git\
+	git push -u origin master\
+\
+	//
+\f1 \'d4\'da\'ca\'b9\'d3\'c3\'be\'cd\'bf\'c9\'d2\'d4\'d6\'b1\'bd\'d3\
+	git add \'ce\'c4\'bc\'fe\'c3\'fb
+\f3 \
+	git push\
+//
+\f1 \'bf\'c9\'c4\'dc\'b4\'e6\'d4\'da\'b5\'c4\'ce\'ca\'cc\'e2
+\f3 \
+	git remote rm origin\
+\
+\cf7 5.
+\f1 \'c9\'e8\'d6\'c3
+\f3 navigationItem.backBarButtonItem 
+\f1 \'ce\'aa\'d7\'d4\'bc\'ba\'cf\'eb\'d2\'aa\'b5\'c4\'ce\'c4\'d7\'d6\cf0 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3 \cf4 		self\cf0 .\cf5 navigationItem\cf0 .\cf5 backBarButtonItem\cf0  = [[\cf5 UIBarButtonItem\cf0  \cf6 alloc\cf0 ]\cf6 initWithTitle\cf0 :\cf11 @"
+\f1 \'ca\'d7\'d2\'b3
+\f3 "\cf0  \cf6 style\cf0 :\cf6 UIBarButtonItemStyleDone\cf0  \cf6 target\cf0 :\cf4 nil\cf0  \cf6 action\cf0 :\cf4 nil\cf0 ];\
+\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 6.
+\f1 \'c9\'be\'b3\'fd
+\f3 Main.storyboard\cf0 \
+- (\cf4 BOOL\cf0 )application:(\cf5 UIApplication\cf0  *)application didFinishLaunchingWithOptions:(\cf5 NSDictionary\cf0  *)launchOptions \{\
+    \cf8 // Override point for customization after application launch.\cf0 \
+    \cf4 self\cf0 .\cf9 window\cf0  = [[\cf5 UIWindow\cf0  \cf6 alloc\cf0 ]\cf6 initWithFrame\cf0 :[\cf5 UIScreen\cf0  \cf6 mainScreen\cf0 ].\cf5 bounds\cf0 ];\
+    \cf4 self\cf0 .\cf9 window\cf0 .\cf5 backgroundColor\cf0  = [\cf5 UIColor\cf0  \cf6 whiteColor\cf0 ];\
+    [\cf4 self\cf0 .\cf9 window\cf0  \cf6 makeKeyAndVisible\cf0 ];\
+    \
+    \cf4 return\cf0  \cf4 YES\cf0 ;\
+\}\
+\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf12 7.push
+\f1 \'d2\'fe\'b2\'d8\'d7\'d3\'d2\'b3\'c3\'e6\'b5\'d8\'b2\'bd\'b5\'c4bottom
+\f3  Tabbar\cf0 \
+-(\cf4 id\cf0 )initWithNibName:(\cf5 NSString\cf0  *)nibNameOrNil bundle:(\cf5 NSBundle\cf0  *)nibBundleOrNil\{\
+    \cf4 self\cf0  = [\cf4 super\cf0  \cf6 initWithNibName\cf0 :nibNameOrNil \cf6 bundle\cf0 :nibBundleOrNil];\
+    \cf4 if\cf0  (\cf4 self\cf0 ) \{\
+        \cf4 self\cf0 .\cf5 hidesBottomBarWhenPushed\cf0  = \cf4 YES\cf0 ;\
+    \}\
+    \cf4 return\cf0  \cf4 self\cf0 ;\
+\}\
+\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 8.
+\f1 \'b6\'a8\'ce\'bb\'ca\'c7\'d0\'e8\'d2\'aa\'d4\'daInfo.plist \'ce\'c4\'bc\'fe\'d6\'d0\'cc\'ed\'bc\'d3\'b5\'c4\'b6\'ab\'ce\'f7
+\f3 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \CocoaLigature1 {{\NeXTGraphic 屏幕快照 2015-09-08 17.41.09.png \width14680 \height1500
+}�}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\cf7 9.
+\f1 \'d5\'d2\'b5\'bd
+\f0 searchBar
+\f1 \'b5\'c4\'b1\'b3\'be\'b0\'c9\'be\'b3\'fd
+\f0 \cf0 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3 \cf8 \CocoaLigature0 //
+\f1 \'c9\'be\'b3\'fd\'b1\'b3\'be\'b0
+\f3 \cf0 \
+    \cf5 UIView\cf0  *searchText = \cf4 nil\cf0 ;\
+    searchText =[[[\cf9 searchBarOfActivity\cf0 .\cf5 subviews\cf0  \cf6 firstObject\cf0 ] \cf6 subviews\cf0 ]\cf6 firstObject\cf0 ];\
+    [searchText \cf6 removeFromSuperview\cf0 ];\
+\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 10.
+\f1 \'c9\'e8\'d6\'c3UISegmentedControl\'b5\'c4\'d7\'d6\'cc\'e5\'b4\'f3\'d0\'a1\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3 \cf0  \cf8 //
+\f1 \'c9\'e8\'d6\'c3\'d7\'d6\'cc\'e5\'b4\'f3\'d0\'a1 \'bb\'b9\'bf\'c9\'d2\'d4\'cc\'ed\'bc\'d3\'d1\'d5\'c9\'ab\'b5\'c8\'ca\'f4\'d0\'d4
+\f3 \cf0 \
+    \cf5 NSDictionary\cf0  *dictOfSeg = [\cf5 NSDictionary\cf0  \cf6 dictionaryWithObjectsAndKeys\cf0 :[\cf5 UIFont\cf0  \cf6 systemFontOfSize\cf0 :\cf10 16\cf0 ],\cf5 NSFontAttributeName\cf0 , \cf4 nil\cf0 ];\
+    \
+    [\cf9 activitySegment\cf0  \cf6 setTitleTextAttributes\cf0 :dictOfSeg \cf6 forState\cf0 :\cf6 UIControlStateNormal\cf0 ];\
+    [\cf4 self\cf0 .\cf5 view\cf0  \cf6 addSubview\cf0 :\cf9 activitySegment\cf0 ];\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 11.
+\f1 \'c9\'e8\'d6\'c3
+\f3 button
+\f1 \'ce\'aa\'d4\'b2\'bd\'c7
+\f3 \cf0 \
+ \cf4 self\cf0 .\cf9 joinBtn\cf0 .\cf5 layer\cf0 .\cf5 masksToBounds\cf0  =\cf4 YES\cf0 ;\
+    \cf4 self\cf0 .\cf9 joinBtn\cf0 .\cf5 layer\cf0 .\cf5 cornerRadius\cf0 =\cf10 10\cf0 ;\
+\
+	//button
+\f4 \'d6\'bb\'d2\'aa\'b1\'df\'bf\'f2\'d1\'d5\'c9\'ab
+\f3 \
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\fs22 \cf5 	CALayer\cf0  *layer = [\cf9 getCodeBtn\cf0  \cf6 layer\cf0 ];\
+    \
+    layer.\cf5 borderWidth\cf0  = \cf10 0.5\cf0 ;\
+    \
+    layer.\cf5 borderColor\cf0  = [[\cf5 UIColor\cf0  \cf6 lightGrayColor\cf0 ]\cf6 CGColor\cf0 ];
+\fs24 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 12.
+\f1 \'d6\'bb\'c9\'e8\'d6\'c3\'d7\'d6\'cc\'e5\'b2\'bb\'c9\'e8\'d6\'c3\'b4\'f3\'d0\'a1
+\f3 \cf0 \
+    \cf4 self\cf0 .\cf9 tourTitle\cf0 .\cf5 font\cf0  =[\cf5 UIFont\cf0  \cf6 fontWithName\cf0 :\cf11 @"Helvetica-Bold"\cf0  \cf6 size\cf0 :[[\cf4 self\cf0 .\cf9 tourTitle\cf0  \cf6 font\cf0 ] \cf6 pointSize\cf0 ]];\
+\
+\cf7 13.
+\f1 \'c4\'ac\'c8\'cf\'d1\'a1\'d6\'d0\'b5\'da\'d2\'bb\'b8\'f6
+\f3 cell\cf0 \
+-(\cf4 void\cf0 )viewWillAppear:(\cf4 BOOL\cf0 )animated\{\
+    \cf5 NSInteger\cf0  selectedIndex = \cf10 0\cf0 ;\
+    \cf5 NSIndexPath\cf0  *selectedIndexPath =[\cf5 NSIndexPath\cf0  \cf6 indexPathForRow\cf0 :selectedIndex \cf6 inSection\cf0 :\cf10 0\cf0 ];\
+    [\cf9 buttonTableView\cf0  \cf6 selectRowAtIndexPath\cf0 :selectedIndexPath \cf6 animated\cf0 :\cf4 NO\cf0  \cf6 scrollPosition\cf0 :\cf6 UITableViewScrollPositionNone\cf0 ];\
+    [\cf4 super\cf0  \cf6 viewWillAppear\cf0 :animated];\
+\}\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f1 \cf0 \'c4\'ac\'c8\'cf\'d1\'a1\'d6\'d0\'ba\'f3\'b4\'a5\'b7\'a2\'d1\'a1\'d6\'d0\'ca\'c2\'bc\'fe\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f3 \cf0  \cf5 NSIndexPath\cf0  *indexPath = [\cf5 NSIndexPath\cf0  \cf6 indexPathForRow\cf0 :\cf10 0\cf0  \cf6 inSection\cf0 :\cf10 0\cf0 ];\
+    \cf4 if\cf0  ([\cf9 buttonTableView\cf0 .\cf5 delegate\cf0  \cf6 respondsToSelector\cf0 :\cf4 @selector\cf0 (tableView:willSelectRowAtIndexPath:)]) \{\
+        [\cf9 buttonTableView\cf0 .\cf5 delegate\cf0  \cf6 tableView\cf0 :\cf9 buttonTableView\cf0  \cf6 willSelectRowAtIndexPath\cf0 :indexPath];\
+    \}\
+    \
+    [\cf9 buttonTableView\cf0  \cf6 selectRowAtIndexPath\cf0 :indexPath \cf6 animated\cf0 :\cf4 YES\cf0  \cf6 scrollPosition\cf0 : \cf6 UITableViewScrollPositionNone\cf0 ];\
+    \
+    \cf4 if\cf0  ([\cf9 buttonTableView\cf0 .\cf5 delegate\cf0  \cf6 respondsToSelector\cf0 :\cf4 @selector\cf0 (tableView:didSelectRowAtIndexPath:)]) \{\
+        [\cf9 buttonTableView\cf0 .\cf5 delegate\cf0  \cf6 tableView\cf0 :\cf9 buttonTableView\cf0  \cf6 didSelectRowAtIndexPath\cf0 :indexPath];\
+    \}\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf7 14.iOS9
+\f1 \'cd\'f8\'c2\'e7\'c7\'eb\'c7\'f3\'ce\'ca\'cc\'e2\cf0 \
+\'d4\'dainfo.plist\'ce\'c4\'bc\'fe\'d6\'d0\'cc\'ed\'bc\'d3 \'bb\'b9\'d3\'d0\'be\'cd\'ca\'c7\'b5\'f7\'d3\'c3\'b5\'da\'c8\'fd\'b7\'bdapp\'ca\'c7\'d2\'aa\'cc\'ed\'bc\'d3\'b5\'c4\'c4\'da\'c8\'dd\
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+
+\f0 \cf0 \CocoaLigature1 {{\NeXTGraphic 屏幕快照 2015-09-24 17.17.03.png \width12940 \height1560
+}�}\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\fs26 \cf13 15.
+\f1 self.title self.navigationItem.title \'ba\'cdself.tabBarItem.title\cf12 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf3 \expnd0\expndtw0\kerning0
+\'d6\'bb\'d2\'aa\'c9\'e8\'d6\'c3
+\f2 self.title,
+\f1 \'c4\'c7\'c3\'b4
+\f2 self.navigationItem.title
+\f1 \'ba\'cd
+\f2 self.tabBarItem.title
+\f1 \'d6\'b5\'b2\'bb\'b9\'dc\'c9\'e8\'d6\'c3\'d3\'eb\'b7\'f1\'b6\'bc\'ba\'cd
+\f2 self.title
+\f1 \'d2\'bb\'d6\'c2\'a1\'a3
+\fs24 \cf12 \kerning1\expnd0\expndtw0 \
+\pard\tx577\pardeftab577\pardirnatural\partightenfactor0
+\cf0 \
+\cf13 16.
+\f5\fs28 \expnd0\expndtw0\kerning0
+ios8 or later
+\f4 \'b5\'c4
+\f5 UIScrollview 
+\f4 \'cf\'f2\'cf\'c2\'c6\'ab\'d2\'c6\'c1\'cb
+\f5 64
+\f4 \'b8\'f6\'b5\'e3
+\f5 ,
+\f4 \'d5\'e2\'b8\'f6\'d0\'e8\'d2\'aa\'d4\'f5\'c3\'b4\'b4\'a6\'c0\'ed\'c4\'d8
+\f5 ?
+\f4 \
+\cf3 	\'d4\'da\'cb\'f9\'d3\'d0\'b5\'c4
+\f5  viewController 
+\f4 \'c0\'ef\'b6\'bc\'bc\'d3\'c9\'cf
+\f5 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf3 	\'d5\'e2\'d1\'f9\'cb\'f9\'d3\'d0\'c9\'e8\'b1\'b8\'cf\'c2\'b6\'bc\'ca\'c7\'b9\'cc\'b6\'a8
+\f5  64
+\f4 \'b5\'c4\'ce\'bb\'d6\'c3\'bf\'aa\'ca\'bc\'a1\'a3
+\f5 \
+\
+	- (void)viewDidLoad \{\
+\'a0\'a0	\'a0\'a0[super viewDidLoad];\
+\'a0\'a0\'a0	\'a0// Do any additional setup after loading the view.\
+\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0	\'a0// 
+\f4 \'c9\'e8\'d6\'c3
+\f5 CGRectZero
+\f4 \'b4\'d3\'b5\'bc\'ba\'bd\'c0\'b8\'cf\'c2\'bf\'aa\'ca\'bc\'bc\'c6\'cb\'e3
+\f5 \
+\'a0\'a0	\'a0\'a0if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0	\'a0\'a0self.edgesForExtendedLayout = UIRectEdgeNone;\
+\'a0\'a0	\'a0\'a0\}\
+	\} \
+\cf13 17.release
+\f4 \'ca\'b1\'c8\'a5\'b5\'f4NSLog \'d4\'da.pch\'ce\'c4\'bc\'fe\'d6\'d0\'bc\'d3\'c8\'eb\'c8\'e7\'cf\'c2\'b4\'fa\'c2\'eb\'a3\'ba\cf3 \
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\f3\fs22 \cf14 \kerning1\expnd0\expndtw0 \CocoaLigature0 	#ifndef __OPTIMIZE__\
+	#define NSLog(...) NSLog(__VA_ARGS__)\
+	#else\
+	#define NSLog(...) \{\}\
+	#endif\
+
+\fs28 \cf13 18.textfiled
+\f4 \'b9\'e2\'b1\'ea\'d3\'d0\'c6\'ab\'d2\'c6
+\f3\fs22 \cf14 \
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+\cf4 self\cf0 .\cf5 automaticallyAdjustsScrollViewInsets\cf0  = \cf4 NO\cf0 ;\
+\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\fs28 \cf13 19.ARC
+\f4 \'b7\'c7
+\f3 ARC
+\f4 \'bb\'ec\'b1\'e0\
+\pard\tx529\pardeftab529\pardirnatural\partightenfactor0
+
+\fs22 \cf0 -fno-objc-arc //\'b2\'bb\'d3\'c3ARC\
+-fobjc-arc\
+}
